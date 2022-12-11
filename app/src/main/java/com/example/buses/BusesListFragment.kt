@@ -5,16 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.buses.adapter.BusesListAdapter
 import com.example.buses.databinding.FragmentBusesListBinding
-import com.example.buses.model.Bus
+import com.example.buses.util.LoadingView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BusesListFragment : Fragment() {
 
     private var _binding: FragmentBusesListBinding? = null
     private val binding get() = _binding!!
+    private lateinit var loader: LoadingView
+    private val viewModel by viewModels<BusViewModel>()
 
+    private val adapter = BusesListAdapter {
+        val action = BusesListFragmentDirections
+            .actionBusesListFragmentToBusPreparationFragment(it.id)
+        findNavController().navigate(action)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,13 +38,21 @@ class BusesListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = BusesListAdapter {
-            val action = BusesListFragmentDirections
-                .actionBusesListFragmentToBusPreparationFragment(it.id)
-            findNavController().navigate(action)
+        loader = LoadingView(requireContext())
+
+        viewModel.buses.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
         }
 
-        adapter.submitList(listOf(Bus(id = 1, placa = "AAA-111"), Bus(id = 2, placa = "ABC-123")))
+        viewModel.loading.observe(viewLifecycleOwner) {
+            if (it) {
+                loader.show()
+            } else {
+                loader.dismiss()
+            }
+        }
+
+        viewModel.getBuses()
 
         binding.apply {
             recyclerView.adapter = adapter

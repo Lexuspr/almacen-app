@@ -32,7 +32,7 @@ class AuthenticationViewModel @Inject constructor(
             }.onSuccess {
                 loading.postValue(false)
                 localStorage[USER_TOKEN] = it.token
-                localStorage[USER_ID] = it.user.uid
+                localStorage[USER_ID] = it.user.id
                 loginResult.postValue(true)
 
             }.onFailure {
@@ -50,7 +50,7 @@ class AuthenticationViewModel @Inject constructor(
             }.onSuccess {
                 loading.postValue(false)
                 localStorage[USER_TOKEN] = it.token
-                localStorage[USER_ID] = it.user.uid
+                localStorage[USER_ID] = it.user.id
                 registerResult.postValue(true)
             }.onFailure {
                 loading.postValue(false)

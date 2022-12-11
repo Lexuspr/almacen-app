@@ -1,6 +1,7 @@
 package com.example.buses.model
 
 data class Bus (
-    val id: Long = 0,
+    val id: Long,
     val placa: String,
+    val user_id: Int
 )
