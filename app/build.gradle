@@ -6,10 +6,6 @@ plugins {
     id 'kotlin-kapt'
 }
 
-def keyPropertiesFile = rootProject.file("keys.properties")
-def keyProperties = new Properties()
-keyProperties.load(new FileInputStream(keyPropertiesFile))
-
 android {
     namespace 'com.example.buses'
     compileSdk 32
@@ -23,11 +19,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        def appCenterKey = keyProperties['APP_CENTER_KEY']
-        if (!appCenterKey) {
-            appCenterKey = "\"${System.env.APP_CENTER_KEY}\""
-        }
-        buildConfigField("String", "APP_CENTER_KEY", appCenterKey)
+        buildConfigField("String", "APP_CENTER_KEY", "\"${System.env.APP_CENTER_KEY}\"")
     }
 
     buildTypes {
