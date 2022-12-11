@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/busesListFragment">
+
+    <fragment
+        android:id="@+id/busesListFragment"
+        android:name="com.example.buses.BusesListFragment"
+        android:label="Listado de buses"
+        tools:layout="@layout/fragment_buses_list" >
+        <action
+            android:id="@+id/action_busesListFragment_to_addBusFragment"
+            app:destination="@id/addBusFragment" />
+        <action
+            android:id="@+id/action_busesListFragment_to_busPreparationFragment"
+            app:destination="@id/busPreparationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addBusFragment"
+        android:name="com.example.buses.AddBusFragment"
+        android:label="Agregar bus"
+        tools:layout="@layout/fragment_add_bus" >
+        <action
+            android:id="@+id/action_addBusFragment_to_busesListFragment"
+            app:destination="@id/busesListFragment"
+            app:popUpTo="@id/busesListFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/busPreparationFragment"
+        android:name="com.example.buses.BusPreparationFragment"
+        android:label="Preparación de ruta"
+        tools:layout="@layout/fragment_bus_preparation">
+        <argument
+            android:name="id"
+            android:defaultValue="0L"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_busPreparationFragment_to_scanPassengersFragment"
+            app:destination="@id/scanPassengersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scanPassengersFragment"
+        android:name="com.example.buses.ScanPassengersFragment"
+        android:label="En recorrido"
+        tools:layout="@layout/fragment_scan_passengers" >
+        <action
+            android:id="@+id/action_scanPassengersFragment_to_busesListFragment"
+            app:destination="@id/busesListFragment"
+            app:popUpTo="@id/busesListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
