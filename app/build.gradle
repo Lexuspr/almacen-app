@@ -23,7 +23,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "APP_CENTER_KEY", keyProperties['APP_CENTER_KEY'])
+        def appCenterKey = keyProperties['APP_CENTER_KEY']
+        if (!appCenterKey) {
+            appCenterKey = "\"${System.env.APP_CENTER_KEY}\""
+        }
+        buildConfigField("String", "APP_CENTER_KEY", appCenterKey)
     }
 
     buildTypes {
