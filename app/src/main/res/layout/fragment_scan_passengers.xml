@@ -8,6 +8,7 @@
     android:layout_height="match_parent">
 
     <TextView
+        style="@style/headerText"
         android:id="@+id/lblPlaca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,9 +18,10 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Bus: AAA-111"
+        android:text="Bus: AAA-111"
         />
     <TextView
+        style="@style/headerText"
         android:id="@+id/lblRoute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,10 +31,10 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lblPlaca"
-        tools:text="Ruta: Punto A - Punto B"
+        android:text="Ruta: Punto A - Punto B"
         />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         style="@style/listContainer"
         android:id="@+id/passengerListLayout"
         android:layout_width="match_parent"
@@ -43,15 +45,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        
+
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollPassengerList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toTopOf="@id/btnFinishRoute"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-            
+            app:layout_constraintTop_toTopOf="parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,16 +67,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:overScrollMode="never"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    />
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
+        <Button
+            android:id="@+id/btnFinishRoute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:text="@string/finish_route"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/scrollPassengerList"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
-
-    </LinearLayout>
-
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

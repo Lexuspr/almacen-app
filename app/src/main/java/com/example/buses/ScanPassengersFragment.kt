@@ -51,10 +51,10 @@ class ScanPassengersFragment : Fragment() {
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 return when (menuItem.itemId) {
-                    R.id.action_finish -> {
-
+                    R.id.action_manual_input -> {
                         true
                     }
+
                     else -> false
                 }
             }
@@ -73,25 +73,14 @@ class ScanPassengersFragment : Fragment() {
         }
 
         adapter.submitList(listOf(
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
-            Passenger(id = 1, name = "Jesus Palo"),
+            Passenger(id = 1, name = "Juan Perez"),
+            Passenger(id = 1, name = "Juan Perez"),
+            Passenger(id = 1, name = "Juan Perez"),
+            Passenger(id = 1, name = "Juan Perez"),
+            Passenger(id = 1, name = "Juan Perez"),
+            Passenger(id = 1, name = "Juan Perez"),
+            Passenger(id = 1, name = "Juan Perez"),
+            Passenger(id = 1, name = "Juan Perez"),
 
         ))
 

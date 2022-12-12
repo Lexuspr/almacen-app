@@ -24,16 +24,26 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
-    
+
     <style name="headerContainer">
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@color/purple_500</item>
     </style>
 
     <style name="listContainer">
-        <item name="android:backgroundTint">@color/purple_500</item>
+        <item name="android:backgroundTint">@color/white</item>
     </style>
 
     <style name="itemText">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="headerText">
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="manualButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="strokeColor">@color/white</item>
+        <item name="strokeWidth">1dp</item>
     </style>
 </resources>

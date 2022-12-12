@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
     <item
-        android:id="@+id/action_finish"
+        android:id="@+id/action_manual_input"
         android:orderInCategory="100"
-        android:title="@string/finish_route"
-        app:showAsAction="never"/>
+        android:title="@string/manual_scan"
+        android:icon="@drawable/ic_baseline_keyboard_24"
+        app:iconTint="@color/white"
+        app:showAsAction="always"/>
 
 </menu>

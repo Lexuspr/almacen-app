@@ -13,7 +13,7 @@
     <string name="forgot_password">Olvidé mi contraseña</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="logout">Cerrar Sesión</string>
+    <string name="logout">Salir</string>
     <string name="add_bus_desc">Agregar un nuevo bus</string>
     <string name="icon_bus_desc">Icono bus</string>
     <string name="plate_hint">Placa</string>
@@ -23,4 +23,5 @@
     <string name="start_route">Iniciar recorrido</string>
     <string name="finish_route">Finalizar recorrido</string>
     <string name="loading">Cargando…</string>
+    <string name="manual_scan">Ingreso manual</string>
 </resources>

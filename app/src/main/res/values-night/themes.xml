@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Buses" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
@@ -19,7 +19,7 @@
     <style name="Theme.Buses.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="headerContainer">
-        <item name="android:background">@color/purple_200</item>
+        <item name="android:background">@color/purple_500</item>
     </style>
 
     <style name="listContainer">
@@ -28,5 +28,15 @@
 
     <style name="itemText">
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="headerText">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="manualButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="strokeColor">@color/white</item>
+        <item name="strokeWidth">1dp</item>
     </style>
 </resources>
