@@ -1,5 +1,6 @@
 package com.example.buses
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -9,9 +10,11 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.buses.adapter.PassengerListAdapter
 import com.example.buses.databinding.FragmentScanPassengersBinding
 import com.example.buses.model.Passenger
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class ScanPassengersFragment : Fragment() {
 
@@ -86,10 +89,19 @@ class ScanPassengersFragment : Fragment() {
 
         binding.apply {
             recyclerView.adapter = adapter
+        }
 
+        binding.btnFinishRoute.setOnClickListener {
+            MaterialAlertDialogBuilder(requireContext())
+                .setMessage("¿Finalizar recorrido?")
+                .setPositiveButton("Finalizar") { dialog, _ ->
+                    dialog.dismiss()
+                    findNavController().navigate(R.id.action_scanPassengersFragment_to_busesListFragment)
+                }
+                .setNegativeButton("Cancelar") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .show()
         }
     }
-
-
-
 }
