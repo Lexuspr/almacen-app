@@ -2,6 +2,8 @@ package com.example.buses.di
 
 import com.example.buses.BuildConfig
 import com.example.buses.data.Api
+import com.example.buses.data.AuthInterceptor
+import com.example.buses.util.LocalStorage
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +21,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideApi(): Api {
+    fun provideApi(localStorage: LocalStorage): Api {
         val httpClientBuilder = OkHttpClient.Builder()
             .connectTimeout(10, TimeUnit.SECONDS)
             .readTimeout(10, TimeUnit.SECONDS)
@@ -30,6 +32,8 @@ object NetworkModule {
             loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
             httpClientBuilder.addInterceptor(loggingInterceptor)
         }
+
+        httpClientBuilder.addInterceptor(AuthInterceptor(localStorage))
 
         val httpClient = httpClientBuilder.build()
         val url = "http://192.168.1.13:5000/api/"

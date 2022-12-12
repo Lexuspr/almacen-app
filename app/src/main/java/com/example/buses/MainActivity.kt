@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_logout -> {
                 localStorage[USER_TOKEN] = ""
-                localStorage[USER_ID] = ""
+                localStorage[USER_ID] = 0L
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 finish()

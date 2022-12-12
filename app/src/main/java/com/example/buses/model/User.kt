@@ -1,6 +1,6 @@
 package com.example.buses.model
 
 data class User (
-    val id: String,
+    val id: Long,
     val name: String
 )

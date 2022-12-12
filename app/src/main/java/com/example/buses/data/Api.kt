@@ -1,5 +1,6 @@
 package com.example.buses.data
 
+import com.example.buses.model.Bus
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -14,4 +15,7 @@ interface Api {
 
     @GET("buses")
     suspend fun getBuses(): BusResponse
+
+    @POST("buses")
+    suspend fun insertBus(@Body request: Bus): Bus
 }
