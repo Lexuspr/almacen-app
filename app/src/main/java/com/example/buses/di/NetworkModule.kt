@@ -36,8 +36,8 @@ object NetworkModule {
         httpClientBuilder.addInterceptor(AuthInterceptor(localStorage))
 
         val httpClient = httpClientBuilder.build()
-        val url = "http://192.168.1.13:5000/api/"
-        //val url = "https://limitless-mesa-70664.herokuapp.com/api/"
+        //val url = "http://192.168.1.13:5000/api/"
+        val url = "https://limitless-mesa-70664.herokuapp.com/api/"
 
         return Retrofit.Builder()
             .baseUrl(url)
